@@ -3,3 +3,6 @@ The publisher sends five messages, each serializing and packing two strings. The
 
 2. The url of: “amqp://guest:guest@localhost:5672” is the same as in the subscriber program, what does it mean?
 It means that both publisher and subscriber are effectively pointing to the very same RabbitMQ instance running on my local machine. The first guest is the username, the second guest the corresponding password, localhost tells the client to connect to a broker on the same host, and :5672 selects the default AMQP port where RabbitMQ listens. This uniform URL ensures that any messages the publisher emits end up in the exact broker (and queue) that the subscriber is monitoring.
+
+3. 
+![RabbitMQ](RabbitMQ.png)
