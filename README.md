@@ -10,3 +10,8 @@ It means that both publisher and subscriber are effectively pointing to the very
 ## Publisher Subscriber Consoles
 ![PublisherSubscriber](publishersubscriber.png)
 The publisher succesfully sent five messages to RabbitMQ, and the subscriber successfully received and printed the five messages. 
+
+## Monitoring the Chart
+![SpikeGraph](spike.png)
+A connection to RabbitMQ is opened every time cargo run is executed. It will then push the five UserCreatedEventMessage consecutively. The RabbitMQ UI tracks how many messages flow through in small time slices. Therefore, when the publisher sends off five messages one after another, a sharp purple peak on the “Message rates” chart is seen. As soon as the messages hit the broker, the subscriber immediately grabs and confirms each message while keeping the queue count at zero and returning the chart to a flat line. The purple peaks represent a single execution of the publisher sending its five messages in one go. 
+
